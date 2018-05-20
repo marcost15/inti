@@ -1,8 +1,8 @@
-# APLICACIÓN WEB PARA LA GESTION DE PROCESOS ADMINISTRATIVOS FEDE
+# SISTEMA AUTOMATIZADO PARA EL CONTROL DE LOS EXPEDIENTES ADMINISTRATIVO DEL INSTITUTO DE TIERRAS DEL ESTADO TRUJILLO
 
 ## Introducción
 
-> El propósito de este sistema es hacer seguimiento a las estadisticas de las obras en instituciones publicas de educación.
+> El propósito de este sistema es hacer seguimiento a los expedientes del INTI
 
 ## Requisitos
 
