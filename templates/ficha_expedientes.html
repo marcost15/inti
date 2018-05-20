@@ -1,0 +1,78 @@
+{include file="inicio.html" title=" Ficha Expediente"}
+<h3>FICHA DEL EXPEDIENTE</h3>
+<table class = "retiro" align = "center" border="1">
+	<tr>
+		<th>ID</th>
+		<td>{$ficha.id}</td>
+	</tr>
+	<tr>
+		<th>Solicitante</th>
+		<td>{$ficha.solicitante_id}</td>
+	</tr>
+	<tr>
+		<th>Nombre del Fundo</th>
+		<td>{$ficha.nombre_fundo}</td>
+	</tr>
+	<tr>
+		<th>Superficie</th>
+		<td>{$ficha.superficie}</td>
+	</tr>
+	<tr>
+		<th>Fecha</th>
+		<td>{$ficha.fecha}</td>
+	</tr>
+	<tr>
+		<th>Tipo de Procedimiento</th>
+		<td>{$ficha.tipo_proc_id}</td>
+	</tr>
+	<tr>
+		<th>Tipo</th>
+		<td>{$ficha.tipo}</td>
+	</tr>
+	<tr>
+		<th>Programa</th>
+		<td>{$ficha.plan_id}</td>
+	</tr>
+	{if $ficha.num_exp}
+	<tr>
+		<th>Nro de Expediente</th>
+		<td>{$ficha.num_exp}</td>
+	</tr>
+	{/if}
+	{if $ficha.num_solicitud_fenix}
+	<tr>
+		<th>Nro de Expediente Fenix</th>
+		<td>{$ficha.num_solicitud_fenix}</td>
+	</tr>
+	{/if}
+	{if $ficha.num_archivo}
+	<tr>
+		<th>Nro de Archivo</th>
+		<td>{$ficha.num_archivo}</td>
+	</tr>
+	{/if}
+	{if $ficha.num_carpeta}
+	<tr>
+		<th>Nro de Carpeta</th>
+		<td>{$ficha.num_carpeta}</td>
+	</tr>
+	{/if}{if $ficha.fecha_remision}
+	<tr>
+		<th>Fecha de Remisión</th>
+		<td>{$ficha.fecha_remision}</td>
+	</tr>
+	{/if}{if $ficha.num_memo}
+	<tr>
+		<th>Nro de Memo</th>
+		<td>{$ficha.num_memo}</td>
+	</tr>
+	{/if}
+	<tr>
+		<th>Status</th>
+		<td>{$ficha.status_id}</td>
+	</tr>
+</table>
+</p>
+<hr/>	
+<div id="boton" align="center"><a href="consmod_expediente.php"><img onmouseover='overlib("<strong>Volver</strong>",WIDTH, 70)' src="./imagenes/flecha_izquierda.gif" onmouseout='return nd();'/></a></div>
+{include file="final.html"}

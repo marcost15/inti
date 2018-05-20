@@ -1,0 +1,37 @@
+﻿{include file="inicio.html" title="Consultas de Movimientos"}
+{$f1}
+{if $datos}
+<h4>Movimientos Solicitados</h4>
+<div id="resultados">
+<table  class="enhancedtable" border="0" cellspacing="3" cellpadding="3" width="100%">
+<thead>
+	<tr> 
+		<th>Fecha</th>
+		<th>Tipo</th>
+		<th>Entrega</th>
+		<th>Recibe</th>
+		<th>Expediente</th>
+		<th>Dependencia</th>
+		<th>Observacion</th>
+	</tr>
+<thead>
+<tbody>
+	{section name=p loop=$datos}
+	<tr>
+		<td>{$datos[p].fecha}</td>
+		<td>{$datos[p].tipo}</td>
+		<td>{$datos[p].func_entrega_id}</td>
+		<td>{$datos[p].func_recibe_id}</td>
+		<td>{$datos[p].expediente_id}</td>
+		<td>{$datos[p].dependencia_id}</td>
+		<td>{$datos[p].observacion}</td>
+	</tr>{/section}
+</tbody>
+</table>
+</div>
+{else}
+	{if $error1 eq 2} 
+		<h3>NO SE ENCONTRÓ MOVIMIENTOS CON ESOS PARAMETROS, VERIFIQUE...</h3>
+	{/if}
+{/if}
+{include file="final.html"}

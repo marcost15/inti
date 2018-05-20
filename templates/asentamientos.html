@@ -1,0 +1,29 @@
+﻿{include file="inicio.html" title="Asentamientos"}
+<table width="90%">
+<tr>
+	<td>{$f1}
+	<div id="mensaje">{$smarty.session.mensaje}</div>
+</td>
+</tr>
+</table>
+<p></p>
+<div id="resultados">
+<table class="enhancedtable" border="0" cellspacing="3" cellpadding="3" width="100%">
+<thead>
+<tr>
+	<th>Nombre</th>
+	<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+{section name=i loop=$asentamientos}
+<tr>
+	<td>{$asentamientos[i].nombre}</td>
+	<td width="10%"><a href="?id={$asentamientos[i].id}"><img onmouseover='overlib("<strong>Modificar</strong>",WIDTH, 70)' src="./imagenes/boton1.png" onmouseout='return nd();'/></a></a></td>
+</tr>
+{/section}
+</tbody>
+</table>
+</div>
+</p>
+{include file="final.html"}

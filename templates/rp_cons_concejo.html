@@ -1,0 +1,94 @@
+{include file="inicio3.html"}
+<div id="resultados_reporte">
+<p>
+<div id = "indice">REPORTE DE EXPEDIENTES POR CONSEJO COMUNAL </br>Consejo Comunal: {$plan_nombre_id}</div>
+</p>
+{if $datos}
+<div id="resultados">
+<table class="enhancedtable" cellspacing="0" cellpadding = "3" border="1" align="center" width="100%">
+<thead>
+	<tr> 
+		<th  colspan ="11">SOLICITANTE</th>
+		<th  colspan ="2">REPRESENTANTE</th>
+		<th  colspan ="14">EXPEDIENTE</th>
+	</tr>
+	<tr> 
+		<th>Cedula o Rif</th>
+		<th>Nombre y Apellido o Razón Social</th>
+		<th>Dirección</th>
+		<th>Sector</th>
+		<th>Parroquia</th>
+		<th>Asentamiento</th>
+		<th>Telefono Fijo</th>
+		<th>Telefono Movil</th>
+		<th>Correo electronico</th>
+		<th>Beneficiarios Directos</th>
+		<th>Beneficiarios Indirectos</th>
+		
+		<th>Cedula</th>
+		<th>Nombre y Apellido</th>
+		
+		<th>ID</th>
+		<th>Nombre del Fundo</th>
+		<th>Superficie</th>
+		<th>Fecha</th>
+		<th>Plan</th>
+		<th>Procedimiento</th>
+		<th>Tipo</th>
+		<th>Nro de Expediente</th>
+		<th>Nro de Expediente Fenix</th>
+		<th>Nro de Archivo</th>
+		<th>Nro de Carpeta</th>
+		<th>Fecha de Remisión</th>
+		<th>Nro de Memo</th>
+		<th>Status</th>
+	</tr>
+</thead>
+<tbody>
+	{section name=p loop=$datos}
+	<tr>		
+		<td>{$datos[p].solicitante.id}</td>
+		<td>{if $datos[p].solicitante.apellido} {$datos[p].solicitante.apellido} ,{/if}{$datos[p].solicitante.nombre}</td>
+		<td>{$datos[p].solicitante.direccion}</td>
+		<td>{$datos[p].solicitante.sector}</td>
+		<td>{$datos[p].solicitante.parroquia_id}</td>
+		<td>{$datos[p].solicitante.asentamiento_id}</td>
+		<td>{$datos[p].solicitante.tlf_fijo}</td>
+		<td>{$datos[p].solicitante.tlf_movil}</td>
+		<td>{$datos[p].solicitante.correo}</td>
+		<td>{$datos[p].solicitante.bene_directo}</td>
+		<td>{$datos[p].solicitante.bene_indirecto}</td>
+		
+		<td>{$datos[p].representante.id}</td>
+		<td>{$datos[p].representante.apellido},{$datos[p].representante.nombre}</td>
+		
+		<td>{$datos[p].id}</td>
+		<td>{$datos[p].nombre_fundo}</td>
+		<td>{$datos[p].superficie}</td>
+		<td>{$datos[p].fecha}</td>
+		<td>{$datos[p].plan_id}</td>
+		<td>{$datos[p].tipo_proc_id}</td>
+		<td>{$datos[p].tipo}</td>
+		<td>{$datos[p].num_exp}</td>
+		<td>{$datos[p].num_solicitud_fenix}</td>
+		<td>{$datos[p].num_archivo}</td>
+		<td>{$datos[p].num_carpeta}</td>
+		<td>{$datos[p].fecha_remision}</td>
+		<td>{$datos[p].num_memo}</td>
+		<td>{$datos[p].status_id}</td>
+		
+	</tr>{/section}
+</tbody>
+</table>
+</div>
+{else}
+	<h3>NO SE ENCONTRÓ NINGUN DATO QUE CORRESPONDA, VERIFIQUE...</h3>
+{/if}
+{if $datos}
+<p>
+<div id="boton">
+<a href="xls_concejo.php" target="_xls"><img onmouseover='overlib("<strong>Generar .xls</strong>",WIDTH, 70)' src="./imagenes/excel.png" width="50" height="50" onmouseout='return nd();'/></a>
+<a href='./grafico_concejo.php' class='claseiframe'><img onmouseover='overlib("<strong>Generar Grafico</strong>",WIDTH, 70)' src="./imagenes/grafico.png" width="50" height="50" onmouseout='return nd();'/></a></div>
+<p>
+</div>{/if}
+{include file="final3.html"}

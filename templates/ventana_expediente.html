@@ -1,0 +1,47 @@
+﻿{include file="inicio2.html" title="Consultas de Expedientes"}
+{$f1}
+
+{if $datos}
+<h4>Expedientes Encontrados</h4>
+<div id="resultados">
+<table  class="enhancedtable" border="0" cellspacing="3" cellpadding="3" width="100%">
+<thead>
+	<tr> 
+		<th>Solicitante</th>
+		<th>Nombre del Fundo</th>
+		<th>Expediente</th>
+		<th>&nbsp;</th>
+		
+	</tr>
+</thead>
+<tbody>
+	{section name=p loop=$datos}
+	<tr>
+		<td>{$datos[p].solicitante_id}</td>
+		<td>{$datos[p].nombre_fundo}</td>
+		<td>{$datos[p].num_exp}</td>
+		<td><a href="javascript:void(0)" onClick="actualizar('{$datos[p].id}','{$datos[p].nombre_fundo}','{$datos[p].superficie}');"><img onmouseover='overlib("<strong>Seleccionar</strong>",WIDTH, 70)' src="./imagenes/seleccionar.ico" onmouseout='return nd();'/></a></td></td></td>
+	</tr>{/section}
+</tbody>
+</table>
+</div>
+{else}
+	{if $error1 eq 2} 
+		<h3>NO SE ENCONTRÓ EXPEDIENTE CON ESOS PARAMETROS, VERIFIQUE...</h3>
+	{/if}
+{/if}
+{include file="final2.html"}
+{literal}
+<script>
+function actualizar(id,nombre_fundo,superficie)
+{  
+	if (document.forms["movimiento"]=opener.document.forms["movimiento"])
+	{
+		opener.document.forms["movimiento"].id.value=id;
+		opener.document.forms["movimiento"].nombre_fundo.value=nombre_fundo;
+		opener.document.forms["movimiento"].superficie.value=superficie;
+	}
+	close();
+}
+</script>
+{/literal}

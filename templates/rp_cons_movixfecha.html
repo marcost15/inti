@@ -1,0 +1,43 @@
+{include file="inicio3.html"}
+<div id="resultados_reporte">
+<p>
+<div id = "indice">REPORTE DE MOVIMIENTOS POR FECHA </br>Desde: {$fecha_ini} Hasta: {$fecha_fin} </div>
+</p>
+{if $datos}
+<div id="resultados">
+<table  class="enhancedtable" border="0" cellspacing="3" cellpadding="3" width="100%">
+<thead>
+	<tr> 
+		<th>Fecha</th>
+		<th>Tipo</th>
+		<th>Entrega</th>
+		<th>Recibe</th>
+		<th>Expediente</th>
+		<th>Dependencia</th>
+		<th>Observacion</th>
+	</tr>
+<thead>
+<tbody>
+	{section name=p loop=$datos}
+	<tr>
+		<td>{$datos[p].fecha}</td>
+		<td>{$datos[p].tipo}</td>
+		<td>{$datos[p].func_entrega_id}</td>
+		<td>{$datos[p].func_recibe_id}</td>
+		<td>{$datos[p].expediente_id}</td>
+		<td>{$datos[p].dependencia_id}</td>
+		<td>{$datos[p].observacion}</td>
+	</tr>{/section}
+</tbody>
+</table>
+</div>
+{else}
+	<h3>NO SE ENCONTRÓ NINGUN DATO QUE CORRESPONDA, VERIFIQUE...</h3>
+{/if}
+{if $datos}
+<p>
+<div id="boton">
+<a href="xls_movixfecha.php" target="_xls"><img onmouseover='overlib("<strong>Generar .xls</strong>",WIDTH, 70)' src="./imagenes/excel.png" width="50" height="50" onmouseout='return nd();'/></a>
+<p>
+</div>{/if}
+{include file="final3.html"}

@@ -1,0 +1,31 @@
+﻿{include file="inicio.html" title="Consultas de Funcionarios"}
+{$f1}
+{if $datos}
+<h4>Funcionarios Solicitados</h4>
+<div id="resultados">
+<table class="enhancedtable" border="0" cellspacing="3" cellpadding="3" width="100%">
+<thead>
+	<tr> 
+	<th>Cedula</th>
+		<th>Nombre</th>
+		<th>Cargo</th>
+		<th>&nbsp;</th>
+	</tr>
+<thead>
+<tbody>
+	{section name=p loop=$datos}
+	<tr>
+		<td>{$datos[p].id}</td>
+		<td>{$datos[p].nombre}</td>
+		<td>{$datos[p].cargo}</td>
+		<td><a href="modificar_funcionarios.php?id={$datos[p].id}"><img onmouseover='overlib("<strong>Modificar</strong>",WIDTH, 70)' src="./imagenes/boton1.png" onmouseout='return nd();'/></a></td>
+	</tr>{/section}
+</tbody>
+</table>
+</div>
+{else}
+	{if $error1 eq 2} 
+		<h3>NO SE ENCONTRÓ FUNCIONARIO CON ESOS PARAMETROS, VERIFIQUE...</h3>
+	{/if}
+{/if}
+{include file="final.html"}

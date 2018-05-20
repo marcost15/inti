@@ -1,0 +1,87 @@
+{include file="inicio.html" title=" Ficha Solicitantes"}
+<h3>FICHA DEL SOLICITANTE</h3>
+<table class = "retiro" align = "center" border="1">
+	<tr>
+		<th>Cedula o Rif</th>
+		<td>{$ficha.id}</td>
+	</tr>
+	{if $ficha.apellido}
+	<tr>
+		<th>Apellido</th>
+		<td>{$ficha.apellido}</td>
+	</tr>
+	{/if}
+	<tr>
+		<th>Nombre o Razón Social</th>
+		<td>{$ficha.nombre}</td>
+	</tr>
+	<tr>
+		<th>Dirección</th>
+		<td>{$ficha.direccion}</td>
+	</tr>
+	<tr>
+		<th>Sector</th>
+		<td>{$ficha.sector}</td>
+	</tr>
+	<tr>
+		<th>Parroquia</th>
+		<td>{$ficha.parroquia_id}</td>
+	</tr>
+	{if $ficha.asentamiento_id}
+	<tr>
+		<th>Asentamiento</th>
+		<td>{$ficha.asentamiento_id}</td>
+	</tr>
+	{/if}
+	{if $ficha.tlf_fijo}
+	<tr>
+		<th>Telefono Fijo</th>
+		<td>{$ficha.tlf_fijo}</td>
+	</tr>
+	{/if}
+	{if $ficha.tlf_movil}
+	<tr>
+		<th>Telefono Movil</th>
+		<td>{$ficha.tlf_movil}</td>
+	</tr>
+	{/if}
+	{if $ficha.correo}
+	<tr>
+		<th>Correo electronico</th>
+		<td>{$ficha.correo}</td>
+	</tr>
+	{/if}
+	<tr>
+		<th>Beneficiarios Directos</th>
+		<td>{$ficha.bene_directo}</td>
+	</tr>
+	<tr>
+		<th>Beneficiarios Indirectos</th>
+		<td>{$ficha.bene_indirecto}</td>
+	</tr>
+	<tr>
+		<th>Concejo Comunal</th>
+		<td>{$ficha.concejo_id}</td>
+	</tr>
+</table>
+</p>
+{if $datos2}
+<h3>REPRESENTANTE</h3>
+<table class = "retiro" align = "center" border="1">
+	<tr>
+		<th>Cedula</th>
+		<td>{$datos2.id}</td>
+	</tr>
+		<tr>
+		<th>Nombre</th>
+		<td>{$datos2.nombre}</td>
+	</tr>
+	<tr>
+		<th>Apellido</th>
+		<td>{$datos2.apellido}</td>
+	</tr>
+</table>
+{/if}
+<hr/>	
+<div id="boton" align="center"><a href="consmod_solicitantes.php"><img onmouseover='overlib("<strong>Volver</strong>",WIDTH, 70)' src="./imagenes/flecha_izquierda.gif" onmouseout='return nd();'/></a></div>
+{include file="final.html"}

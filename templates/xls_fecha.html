@@ -1,0 +1,83 @@
+{include file="inicio2.html"}
+<div id="resultados_reporte">
+<p>
+<div id = "indice">REPORTE DE EXPEDIENTES POR FECHA </br> Desde: {$datos.fecha_ini} Hasta: {$datos.fecha_fin}</div>
+</p>
+{if $datos}
+<table class="enhancedtable" cellspacing="0" cellpadding = "3" border="1" align="center" width="100%">
+	<tr> 
+		<th  colspan ="12">SOLICITANTE</th>
+		<th  colspan ="2">REPRESENTANTE</th>
+		<th  colspan ="14">EXPEDIENTE</th>
+	</tr>
+	<tr> 
+		<th>Cedula o Rif</th>
+		<th>Nombre y Apellido o Razón Social</th>
+		<th>Dirección</th>
+		<th>Sector</th>
+		<th>Parroquia</th>
+		<th>Asentamiento</th>
+		<th>Telefono Fijo</th>
+		<th>Telefono Movil</th>
+		<th>Correo electronico</th>
+		<th>Beneficiarios Directos</th>
+		<th>Beneficiarios Indirectos</th>
+		<th>Consejo Comunal</th>
+		
+		<th>Cedula</th>
+		<th>Nombre y Apellido</th>
+		
+		<th>ID</th>
+		<th>Nombre del Fundo</th>
+		<th>Superficie</th>
+		<th>Fecha</th>
+		<th>Plan</th>
+		<th>Procedimiento</th>
+		<th>Tipo</th>
+		<th>Nro de Expediente</th>
+		<th>Nro de Expediente Fenix</th>
+		<th>Nro de Archivo</th>
+		<th>Nro de Carpeta</th>
+		<th>Fecha de Remisión</th>
+		<th>Nro de Memo</th>
+		<th>Status</th>
+	</tr>
+	{section name=p loop=$datos}
+	<tr>
+		<td>{$datos.datos[p].solicitante.id}</td>
+		<td>{if $datos.datos[p].solicitante.apellido} {$datos.datos[p].solicitante.apellido} ,{/if}{$datos.datos[p].solicitante.nombre}</td>
+		<td>{$datos.datos[p].solicitante.direccion}</td>
+		<td>{$datos.datos[p].solicitante.sector}</td>
+		<td>{$datos.datos[p].solicitante.parroquia_id}</td>
+		<td>{$datos.datos[p].solicitante.asentamiento_id}</td>
+		<td>{$datos.datos[p].solicitante.tlf_fijo}</td>
+		<td>{$datos.datos[p].solicitante.tlf_movil}</td>
+		<td>{$datos.datos[p].solicitante.correo}</td>
+		<td>{$datos.datos[p].solicitante.bene_directo}</td>
+		<td>{$datos.datos[p].solicitante.bene_indirecto}</td>
+		<td>{$datos.datos[p].solicitante.concejo_id}</td>
+		
+		<td>{$datos.datos[p].representante.id}</td>
+		<td>{$datos.datos[p].representante.apellido},{$datos.datos[p].representante.nombre}</td>
+		
+		<td>{$datos.datos[p].id}</td>
+		<td>{$datos.datos[p].nombre_fundo}</td>
+		<td>{$datos.datos[p].superficie}</td>
+		<td>{$datos.datos[p].fecha}</td>
+		<td>{$datos.datos[p].plan_id}</td>
+		<td>{$datos.datos[p].tipo_proc_id}</td>
+		<td>{$datos.datos[p].tipo}</td>
+		<td>{$datos.datos[p].num_exp}</td>
+		<td>{$datos.datos[p].num_solicitud_fenix}</td>
+		<td>{$datos.datos[p].num_archivo}</td>
+		<td>{$datos.datos[p].num_carpeta}</td>
+		<td>{$datos.datos[p].fecha_remision}</td>
+		<td>{$datos.datos[p].num_memo}</td>
+		<td>{$datos.datos[p].status_id}</td>		
+	</tr>{/section}
+</table>
+{else}
+	<h3>NO SE ENCONTRÓ NINGUN DATO QUE CORRESPONDA, VERIFIQUE...</h3>
+{/if}
+</div>
+{include file="final3.html"}
